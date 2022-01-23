@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  namespace: kubernetes-plugin
+  name: jenkins-pod
+spec:
+  containers:
+  - name: jnlp
+    image: 10.69.182.169:18080/customjnlp:latest
+    imagePullPolicy: Always
+    workingDir: /var/lib/jenkins
+    args: ['\$(JENKINS_SECRET)', '\$(JENKINS_NAME)']
+    env:
+    - name: CONTAINER_ENV_VAR
+      value: jnlp
+  imagePullSecrets:
+  - name: regcred

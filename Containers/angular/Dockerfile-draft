@@ -1,0 +1,24 @@
+FROM node:latest
+
+cd /mnt/cib-angular
+
+npm install -g @angular/cli 
+npm install node-sass@4.12.0
+
+
+npm i --save puppeteer??? why do we do that? we have 'protractor' /mnt/cib-angular/node_modules/protractor/
+npm i --save chrome-launcher ??
+npm i --save-dev selenium-webdriver chromedriver
+
+
+cd /mnt/cib-angular/node_modules
+node webdriver-manager update
+or
+node webdriver-manager update --versions.chrome=2.30 --gecko=false
+
+
+
+export CHROME_BIN=chromium-browser ??
+export CHROME_BIN=google-chrome ??
+
+ng build
